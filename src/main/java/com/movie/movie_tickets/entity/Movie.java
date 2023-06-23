@@ -9,4 +9,7 @@ public class Movie {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "showOccurrence_id")
     private int showOccurrenceId;
+
+
+
 }
