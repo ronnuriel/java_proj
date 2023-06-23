@@ -13,21 +13,28 @@ public class Show_Occurrence {
     @Column(name = "showOccurrence_id")
     private int showOccurrenceId;
 
+
+    //TODO: How to connect showOccurrence_id what kind of relation
+    @OneToOne
+    @JoinColumn(name = "hall_id")
+    Movie movie;
+
     private Date date;
 
     private int totalTickets;
 
     private int ticketsLeft;
 
-    public Show_Occurrence(int showOccurrenceId, Date date, int totalTickets, int ticketsLeft) {
+    public Show_Occurrence() {
+
+    }
+
+    public Show_Occurrence(int showOccurrenceId, Movie movie, Date date, int totalTickets, int ticketsLeft) {
         this.showOccurrenceId = showOccurrenceId;
+        this.movie = movie;
         this.date = date;
         this.totalTickets = totalTickets;
         this.ticketsLeft = ticketsLeft;
-    }
-
-    public Show_Occurrence() {
-
     }
 
     public int getShowOccurrenceId() {
@@ -60,5 +67,13 @@ public class Show_Occurrence {
 
     public void setTicketsLeft(int ticketsLeft) {
         this.ticketsLeft = ticketsLeft;
+    }
+
+    public Movie getMovie() {
+        return movie;
+    }
+
+    public void setMovie(Movie movie) {
+        this.movie = movie;
     }
 }

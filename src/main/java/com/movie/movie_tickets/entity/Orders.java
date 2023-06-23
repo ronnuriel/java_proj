@@ -13,12 +13,16 @@ public class Orders {
     @JoinColumn(name = "showOccurrence_id")
     private Show_Occurrence showOccurrence;
 
+    @OneToOne
+    @JoinColumn(name = "user_id")
+    private User user;
     public Orders() {
     }
 
-    public Orders(int orderId, Show_Occurrence showOccurrence) {
-        orderId = orderId;
+    public Orders(int orderId, Show_Occurrence showOccurrence, User user) {
+        this.orderId = orderId;
         this.showOccurrence = showOccurrence;
+        this.user = user;
     }
 
     public int getOrderId() {
@@ -26,7 +30,7 @@ public class Orders {
     }
 
     public void setOrderId(int orderId) {
-        orderId = orderId;
+        this.orderId = orderId;
     }
 
     public Show_Occurrence getShowOccurrence() {
@@ -35,5 +39,13 @@ public class Orders {
 
     public void setShowOccurrence(Show_Occurrence showOccurrence) {
         this.showOccurrence = showOccurrence;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 }
