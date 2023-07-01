@@ -1,13 +1,11 @@
 package com.movie.movie_tickets.entity;
 import jakarta.persistence.*;
 
-import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
 
 
 @Entity
-public class Show_Occurrence {
+public class Movie_Occurrence {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "showOccurrence_id")
@@ -25,11 +23,11 @@ public class Show_Occurrence {
 
     private int ticketsLeft;
 
-    public Show_Occurrence() {
+    public Movie_Occurrence() {
 
     }
 
-    public Show_Occurrence(int showOccurrenceId, Movie movie, Date date, int totalTickets, int ticketsLeft) {
+    public Movie_Occurrence(int showOccurrenceId, Movie movie, Date date, int totalTickets, int ticketsLeft) {
         this.showOccurrenceId = showOccurrenceId;
         this.movie = movie;
         this.date = date;
