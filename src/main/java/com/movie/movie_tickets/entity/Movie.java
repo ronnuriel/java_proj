@@ -2,6 +2,8 @@ package com.movie.movie_tickets.entity;
 
 import jakarta.persistence.*;
 
+import java.util.List;
+
 
 @Entity
 public class Movie {
@@ -46,4 +48,5 @@ public class Movie {
     public void setMovieDescription(String movieDescription) {
         this.movieDescription = movieDescription;
     }
+
 }

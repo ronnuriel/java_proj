@@ -2,14 +2,15 @@ package com.movie.movie_tickets.entity;
 import jakarta.persistence.*;
 
 import java.util.Date;
+import java.util.List;
 
 
 @Entity
 public class Movie_Occurrence {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "showOccurrence_id")
-    private int showOccurrenceId;
+    @Column(name = "movieOccurrence_id")
+    private int movieOccurrenceId;
 
 
     //TODO: How to connect showOccurrence_id what kind of relation
@@ -23,24 +24,36 @@ public class Movie_Occurrence {
 
     private int ticketsLeft;
 
+
+    @ManyToMany
+    @JoinTable(
+            name = "seat_in_movieOccurrence",
+            joinColumns = @JoinColumn(name = "movieOccurrence_id"),
+            inverseJoinColumns = @JoinColumn(name = "seat_id")
+    )
+    private List<Seat> seats;
+
+
+
     public Movie_Occurrence() {
 
     }
 
-    public Movie_Occurrence(int showOccurrenceId, Movie movie, Date date, int totalTickets, int ticketsLeft) {
-        this.showOccurrenceId = showOccurrenceId;
+    public Movie_Occurrence(int movieOccurrenceId, Movie movie, Date date, int totalTickets, int ticketsLeft, List<Seat> seats) {
+        this.movieOccurrenceId = movieOccurrenceId;
         this.movie = movie;
         this.date = date;
         this.totalTickets = totalTickets;
         this.ticketsLeft = ticketsLeft;
+        this.seats = seats;
     }
 
-    public int getShowOccurrenceId() {
-        return showOccurrenceId;
+    public int getMovieOccurrenceId() {
+        return movieOccurrenceId;
     }
 
-    public void setShowOccurrenceId(int showOccurrenceId) {
-        this.showOccurrenceId = showOccurrenceId;
+    public void setMovieOccurrenceId(int showOccurrenceId) {
+        this.movieOccurrenceId = showOccurrenceId;
     }
 
     public Date getDate() {
@@ -73,5 +86,13 @@ public class Movie_Occurrence {
 
     public void setMovie(Movie movie) {
         this.movie = movie;
+    }
+
+    public List<Seat> getSeats() {
+        return seats;
+    }
+
+    public void setSeats(List<Seat> seats) {
+        this.seats = seats;
     }
 }
