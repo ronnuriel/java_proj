@@ -18,8 +18,7 @@ public class User {
     public User() {
     }
 
-    public User(int userId, String name, String mail, String phone) {
-        this.userId = userId;
+    public User(String name, String mail, String phone) {
         this.name = name;
         this.mail = mail;
         this.phone = phone;

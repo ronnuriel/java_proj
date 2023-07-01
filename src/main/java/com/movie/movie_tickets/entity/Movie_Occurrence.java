@@ -36,11 +36,9 @@ public class Movie_Occurrence {
 
 
     public Movie_Occurrence() {
-
     }
 
-    public Movie_Occurrence(int movieOccurrenceId, Movie movie, Date date, int totalTickets, int ticketsLeft, List<Seat> seats) {
-        this.movieOccurrenceId = movieOccurrenceId;
+    public Movie_Occurrence(Movie movie, Date date, int totalTickets, int ticketsLeft, List<Seat> seats) {
         this.movie = movie;
         this.date = date;
         this.totalTickets = totalTickets;

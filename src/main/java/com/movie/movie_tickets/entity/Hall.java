@@ -15,8 +15,7 @@ public class Hall {
     public Hall() {
     }
 
-    public Hall(int hallId, int hall_num) {
-        this.hallId = hallId;
+    public Hall(int hall_num) {
         this.hall_num = hall_num;
     }
 

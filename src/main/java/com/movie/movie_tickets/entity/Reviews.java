@@ -12,17 +12,18 @@ public class Reviews {
 
     private String reviewDescription;
 
-    public Reviews(int reviewId, String reviewDescription) {
-        this.reviewId = reviewId;
-        this.reviewDescription = reviewDescription;
-    }
-
     @ManyToOne
     @JoinColumn(name = "movie_id")
     private Movie movie;
 
     public Reviews() {
 
+    }
+
+    public Reviews(String reviewDescription, Movie movie) {
+
+        this.reviewDescription = reviewDescription;
+        this.movie = movie;
     }
 
     public int getReviewId() {

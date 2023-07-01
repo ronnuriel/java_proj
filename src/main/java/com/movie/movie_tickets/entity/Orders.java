@@ -27,8 +27,7 @@ public class Orders {
     public Orders() {
     }
 
-    public Orders(int orderId, Movie_Occurrence showOccurrence, List<User> users) {
-        this.orderId = orderId;
+    public Orders(Movie_Occurrence showOccurrence, List<User> users) {
         this.showOccurrence = showOccurrence;
         this.users = users;
     }

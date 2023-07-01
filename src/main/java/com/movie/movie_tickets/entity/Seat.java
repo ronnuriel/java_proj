@@ -8,19 +8,17 @@ public class Seat {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "seat_id")
     private int seatId;
-
     private int row_num;
     private int col_num;
 
-    @OneToOne
+    @ManyToOne
     @JoinColumn(name = "hall_id")
     private Hall hall;
 
     public Seat() {
     }
 
-    public Seat(int seatId, int row_num, int col_num, Hall hall) {
-        this.seatId = seatId;
+    public Seat(int row_num, int col_num, Hall hall) {
         this.row_num = row_num;
         this.col_num = col_num;
         this.hall = hall;
