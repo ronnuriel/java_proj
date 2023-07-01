@@ -27,12 +27,11 @@ public class Movie_Occurrence {
 
     @ManyToMany
     @JoinTable(
-            name = "seat_in_movieOccurrence",
+            name = "seat_in_movie_occurrence",
             joinColumns = @JoinColumn(name = "movieOccurrence_id"),
             inverseJoinColumns = @JoinColumn(name = "seat_id")
     )
     private List<Seat> seats;
-
 
 
     public Movie_Occurrence() {

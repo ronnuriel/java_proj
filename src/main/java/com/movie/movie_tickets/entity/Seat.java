@@ -2,6 +2,8 @@ package com.movie.movie_tickets.entity;
 
 import jakarta.persistence.*;
 
+import java.util.List;
+
 @Entity
 public class Seat {
     @Id
@@ -17,6 +19,9 @@ public class Seat {
 
     public Seat() {
     }
+
+    @ManyToMany(mappedBy = "seats")
+    private List<Movie_Occurrence> movieOccurrences;
 
     public Seat(int row_num, int col_num, Hall hall) {
         this.row_num = row_num;
