@@ -2,7 +2,9 @@ package com.movie.movie_tickets.entity;
 import jakarta.persistence.*;
 
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 
 @Entity
@@ -32,6 +34,15 @@ public class Movie_Occurrence {
     )
     private List<Seat> seats;
 
+    @ElementCollection
+    @CollectionTable(
+            name = "movie_occurrence_seat_status",
+            joinColumns = @JoinColumn(name = "movie_occurrence_id")
+    )
+
+    @MapKeyJoinColumn(name = "seat_id")
+    @Column(name = "is_available_seat")
+    private Map<Seat, Boolean> seatStatus;
 
     public Movie_Occurrence() {
     }
@@ -42,6 +53,31 @@ public class Movie_Occurrence {
         this.totalTickets = totalTickets;
         this.ticketsLeft = ticketsLeft;
         this.seats = seats;
+        this.seatStatus = new HashMap<>();
+        initializeSeatStatus();
+    }
+
+    // Helper method to initialize the seat status map
+    private void initializeSeatStatus() {
+        for (Seat seat : this.seats) {
+            this.seatStatus.put(seat, true); // Set all seats as initially available
+        }
+    }
+
+    public Map<Seat, Boolean> getSeatStatus() {
+        return this.seatStatus;
+    }
+
+    public void setSeatStatus(Map<Seat, Boolean> seatStatus) {
+        this.seatStatus = seatStatus;
+    }
+
+    public void markSeatAsTaken(Seat seat) {
+        seatStatus.put(seat, false);
+    }
+
+    public void markSeatAsAvailable(Seat seat) {
+        seatStatus.put(seat, true);
     }
 
     public int getMovieOccurrenceId() {
@@ -90,5 +126,14 @@ public class Movie_Occurrence {
 
     public void setSeats(List<Seat> seats) {
         this.seats = seats;
+    }
+
+    public Seat findSeatById(long id) {
+        for (Seat seat : this.seats) {
+            if (seat.getSeatId() == id) {
+                return seat;
+            }
+        }
+        return null;
     }
 }
