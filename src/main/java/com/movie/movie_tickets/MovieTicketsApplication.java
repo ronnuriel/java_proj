@@ -120,23 +120,23 @@ public class MovieTicketsApplication implements CommandLineRunner {
 
 		// Create users
 		User user1 = new User("John Doe", "john@example.com", "1234567890");
-		User user2 = new User("Jane Smith", "jane@example.com", "0987654321");
+		User user2 = new User("Jane Smith", "jane@example.com", "987654321");
 //
 		// Save users to the database
-//		userRepo.save(user1);
-//		userRepo.save(user2);
+		userRepo.save(user1);
+		userRepo.save(user2);
 
 //		 Create orders
-//		List<User> users = new ArrayList<>();
-//		users.add(user1);
-//		users.add(user2);
+		List<User> users = new ArrayList<>();
+		users.add(user1);
+		users.add(user2);
 ////
-//		Orders order1 = new Orders(movieOccurrence1, users);
-//		Orders order2 = new Orders(movieOccurrence2, users);
+		Orders order1 = new Orders(movieOccurrence1, users);
+		Orders order2 = new Orders(movieOccurrence2, users);
 ////
 ////		// Save orders to the database
-//		ordersRepo.save(order1);
-//		ordersRepo.save(order2);
+		ordersRepo.save(order1);
+		ordersRepo.save(order2);
 //
 ////		 Create reviews
 //		Reviews review1 = new Reviews("Great movie!", movie1);

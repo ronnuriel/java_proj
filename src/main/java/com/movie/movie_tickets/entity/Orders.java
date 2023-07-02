@@ -13,7 +13,7 @@ public class Orders {
 
     @OneToOne
     @JoinColumn(name = "showOccurrence_id")
-    private Movie_Occurrence showOccurrence;
+    private Movie_Occurrence movieOccurrence;
 
     @ManyToMany
     @JoinTable(
@@ -27,8 +27,8 @@ public class Orders {
     public Orders() {
     }
 
-    public Orders(Movie_Occurrence showOccurrence, List<User> users) {
-        this.showOccurrence = showOccurrence;
+    public Orders(Movie_Occurrence movieOccurrence, List<User> users) {
+        this.movieOccurrence = movieOccurrence;
         this.users = users;
     }
 
@@ -40,12 +40,12 @@ public class Orders {
         this.orderId = orderId;
     }
 
-    public Movie_Occurrence getShowOccurrence() {
-        return showOccurrence;
+    public Movie_Occurrence getMovieOccurrence() {
+        return movieOccurrence;
     }
 
-    public void setShowOccurrence(Movie_Occurrence showOccurrence) {
-        this.showOccurrence = showOccurrence;
+    public void setMovieOccurrence(Movie_Occurrence showOccurrence) {
+        this.movieOccurrence = showOccurrence;
     }
 
     public List<User> getUsers() {
