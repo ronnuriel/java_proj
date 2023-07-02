@@ -19,8 +19,7 @@ public class Movie {
     public Movie() {
     }
 
-    public Movie(int movieId, String movieName, String movieDescription) {
-        this.movieId = movieId;
+    public Movie(String movieName, String movieDescription) {
         this.movieName = movieName;
         this.movieDescription = movieDescription;
     }

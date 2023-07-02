@@ -14,8 +14,8 @@ public class Movie_Occurrence {
 
 
     //TODO: How to connect showOccurrence_id what kind of relation
-    @OneToOne
-    @JoinColumn(name = "hall_id")
+    @ManyToOne
+    @JoinColumn(name = "movie_id")
     Movie movie;
 
     private Date date;
@@ -23,7 +23,6 @@ public class Movie_Occurrence {
     private int totalTickets;
 
     private int ticketsLeft;
-
 
     @ManyToMany
     @JoinTable(

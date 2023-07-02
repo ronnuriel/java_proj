@@ -60,4 +60,36 @@ public class Seat {
     public void setHall(Hall hall) {
         this.hall = hall;
     }
+
+    public int getSeatId() {
+        return seatId;
+    }
+
+    public void setSeatId(int seatId) {
+        this.seatId = seatId;
+    }
+
+    public int getRow_num() {
+        return row_num;
+    }
+
+    public void setRow_num(int row_num) {
+        this.row_num = row_num;
+    }
+
+    public int getCol_num() {
+        return col_num;
+    }
+
+    public void setCol_num(int col_num) {
+        this.col_num = col_num;
+    }
+
+    public List<Movie_Occurrence> getMovieOccurrences() {
+        return movieOccurrences;
+    }
+
+    public void setMovieOccurrences(List<Movie_Occurrence> movieOccurrences) {
+        this.movieOccurrences = movieOccurrences;
+    }
 }
